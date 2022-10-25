@@ -30,7 +30,7 @@ Extend the `BaseModel` class and either leave the "id" property default, which i
 public class MyModel : BaseModel
 {
   // BaseModel has the following properties already prepared:
-  // [JsonProperty("id")] public string Id {get;set;}
+  // [JsonProperty("id")] public virtual string Id {get;set;}
   // [JsonProperty("created_at")] public DateTime CreatedAt {get;set;}
   // [JsonProperty("updated_at")] public DateTime UpdatedAt {get;set;}
   [JsonProperty("my_property")]public string MyProperty {get;set;}
@@ -41,6 +41,7 @@ public static class Program
   {
     var service = CosmosCrud.SpinUp("myDatabase", "myContainer", "super.iffy.connection/string", "someHashKeyProvidedByCosmos");
 
+    MyModel createdItem = await service.AddItemAsync(new MyModel() { Id = "some-identifier-string" /*MUST be GUID type by default*/, CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now, MyProperty = "some data in here" });
     MyModel retrievedItem = await service.GetItemAsync("some-identifier-string");
     MyModel updatedItem = await service.UpdateItemAsync("some-identifier-string", retrievedItem);
     bool deletedItem = await service.DeleteItemAsync("some-identifier-string");
