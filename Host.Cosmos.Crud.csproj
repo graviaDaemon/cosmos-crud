@@ -22,6 +22,7 @@ This package uses Newtonsoft.Json and Microsoft.Azure.Cosmos in order to functio
 The SpinUp method provided is a static method to create the CosmosDbService instance in which the datbasename, account, key, and containerName can be provided. Such an account would be the connectionstring provided by the Azure resource. Same goes for the key.</Description>
         <Copyright>This project is open source</Copyright>
         <RepositoryType>GitHub</RepositoryType>
+        <RepositoryUrl>https://github.com/graviaDaemon/cosmos-crud.git</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>

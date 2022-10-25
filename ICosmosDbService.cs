@@ -1,7 +1,6 @@
-﻿using Host.Cosmos.Crud;
-using Microsoft.Azure.Cosmos;
+﻿using Microsoft.Azure.Cosmos;
 
-namespace CosmosCrud.Base;
+namespace Host.Cosmos.Crud;
 
 /// <summary>
 /// The interface determining all CRUD interactions with a Cosmos DB. This is currently only available to a NoSQL database
