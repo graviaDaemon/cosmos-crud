@@ -17,11 +17,14 @@ public class CosmosDbService : ICosmosDbService
 
     public async Task<IEnumerable<BaseModel?>?> GetItemsAsync(string queryString)
     {
+        // Start a query for which items to return
         FeedIterator<BaseModel> query = _container.GetItemQueryIterator<BaseModel>(new QueryDefinition(queryString));
         IEnumerable<BaseModel>? results = null;
         while (query.HasMoreResults)
         {
+            // get next query item
             FeedResponse<BaseModel> response = await query.ReadNextAsync();
+            // set all queried items into Enumerable
             results = response.AsEnumerable();
         }
 

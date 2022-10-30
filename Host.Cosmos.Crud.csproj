@@ -26,9 +26,9 @@ The SpinUp method provided is a static method to create the CosmosDbService inst
         <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
         <AssemblyName>Cosmos.Crud</AssemblyName>
         <RootNamespace>Cosmos.Crud</RootNamespace>
-        <PackageId>Cosmos.Crud</PackageId>
-        <PackageVersion>1.0.1</PackageVersion>
-        <PackageReleaseNotes>Updated the namespaces from "Host.Cosmos.Crud" to "Cosmos.Crud" </PackageReleaseNotes>
+        <PackageId>Host.Cosmos.Crud</PackageId>
+        <PackageVersion>1.0.2</PackageVersion>
+        <PackageReleaseNotes>Added comments for future results</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
