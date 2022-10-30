@@ -8,10 +8,10 @@ C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\Cosmos.CRTCompat.dll
 C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\msvcp140.dll
 C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\vcruntime140.dll
 C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\vcruntime140_1.dll
-C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\Host.Cosmos.Crud.deps.json
-C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\Host.Cosmos.Crud.dll
-C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\Host.Cosmos.Crud.pdb
-C:\Users\Gravia\RiderProjects\Cosmos-Crud\obj\Debug\net6.0\Host.Cosmos.Crud.dll
-C:\Users\Gravia\RiderProjects\Cosmos-Crud\obj\Debug\net6.0\refint\Host.Cosmos.Crud.dll
-C:\Users\Gravia\RiderProjects\Cosmos-Crud\obj\Debug\net6.0\Host.Cosmos.Crud.pdb
-C:\Users\Gravia\RiderProjects\Cosmos-Crud\obj\Debug\net6.0\ref\Host.Cosmos.Crud.dll
+C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\Cosmos.Crud.deps.json
+C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\Cosmos.Crud.dll
+C:\Users\Gravia\RiderProjects\Cosmos-Crud\bin\Debug\net6.0\Cosmos.Crud.pdb
+C:\Users\Gravia\RiderProjects\Cosmos-Crud\obj\Debug\net6.0\Cosmos.Crud.dll
+C:\Users\Gravia\RiderProjects\Cosmos-Crud\obj\Debug\net6.0\refint\Cosmos.Crud.dll
+C:\Users\Gravia\RiderProjects\Cosmos-Crud\obj\Debug\net6.0\Cosmos.Crud.pdb
+C:\Users\Gravia\RiderProjects\Cosmos-Crud\obj\Debug\net6.0\ref\Cosmos.Crud.dll

@@ -1,7 +1,7 @@
-﻿using CosmosCrud.Base;
+﻿using Cosmos.Crud.Base;
 using Microsoft.Azure.Cosmos;
 
-namespace Host.Cosmos.Crud;
+namespace Cosmos.Crud;
 
 /// <summary>
 /// Use this static class to startup your CosmosDbService, and use the return value to use any crud-call

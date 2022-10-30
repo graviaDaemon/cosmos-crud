@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Gravia\\RiderProjects\\Cosmos-Crud\\Host.Cosmos.Crud.csproj",
-        "projectName": "Host.Cosmos.Crud",
+        "projectName": "Cosmos.Crud",
         "projectPath": "C:\\Users\\Gravia\\RiderProjects\\Cosmos-Crud\\Host.Cosmos.Crud.csproj",
         "packagesPath": "C:\\Users\\Gravia\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Gravia\\RiderProjects\\Cosmos-Crud\\obj\\",

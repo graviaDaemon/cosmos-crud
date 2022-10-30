@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Host.Cosmos.Crud/1.0.0": {
+      "Cosmos.Crud/1.0.0": {
         "dependencies": {
           "Microsoft.Azure.Cosmos": "3.31.0",
           "Newtonsoft.Json": "10.0.2"
         },
         "runtime": {
-          "Host.Cosmos.Crud.dll": {}
+          "Cosmos.Crud.dll": {}
         }
       },
       "Azure.Core/1.19.0": {
@@ -1013,7 +1013,7 @@
     }
   },
   "libraries": {
-    "Host.Cosmos.Crud/1.0.0": {
+    "Cosmos.Crud/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
