@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
-namespace Host.Cosmos.Crud;
+namespace Cosmos.Crud;
 
 /// <summary>
 /// The base model to extend all other models to work with the database. This model is using Newtonsoft.Json to set

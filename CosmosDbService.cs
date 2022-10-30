@@ -1,8 +1,7 @@
 ﻿using System.Net;
-using Host.Cosmos.Crud;
 using Microsoft.Azure.Cosmos;
 
-namespace CosmosCrud.Base;
+namespace Cosmos.Crud.Base;
 
 public class CosmosDbService : ICosmosDbService
 {

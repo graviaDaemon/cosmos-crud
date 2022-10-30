@@ -23,6 +23,12 @@ The SpinUp method provided is a static method to create the CosmosDbService inst
         <Copyright>This project is open source</Copyright>
         <RepositoryType>GitHub</RepositoryType>
         <RepositoryUrl>https://github.com/graviaDaemon/cosmos-crud.git</RepositoryUrl>
+        <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
+        <AssemblyName>Cosmos.Crud</AssemblyName>
+        <RootNamespace>Cosmos.Crud</RootNamespace>
+        <PackageId>Cosmos.Crud</PackageId>
+        <PackageVersion>1.0.1</PackageVersion>
+        <PackageReleaseNotes>Updated the namespaces from "Host.Cosmos.Crud" to "Cosmos.Crud" </PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
