@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Net;
 using Microsoft.Azure.Cosmos;
 
-namespace Cosmos.Crud.Base;
+namespace Cosmos.Crud;
 
 public class CosmosDbService : ICosmosDbService
 {
@@ -19,15 +15,15 @@ public class CosmosDbService : ICosmosDbService
         _container = dbClient.GetContainer(databaseName, containerName);
     }
 
-    public async Task<IEnumerable<BaseModel?>?> GetItemsAsync(string queryString)
+    public async Task<IEnumerable<T?>?> GetItemsAsync<T>(string queryString) where T : BaseModel
     {
         // Start a query for which items to return
-        FeedIterator<BaseModel> query = _container.GetItemQueryIterator<BaseModel>(new QueryDefinition(queryString));
-        IEnumerable<BaseModel>? results = null;
+        FeedIterator<T> query = _container.GetItemQueryIterator<T>(new QueryDefinition(queryString));
+        IEnumerable<T>? results = null;
         while (query.HasMoreResults)
         {
             // get next query item
-            FeedResponse<BaseModel> response = await query.ReadNextAsync();
+            FeedResponse<T> response = await query.ReadNextAsync();
             // set all queried items into Enumerable
             results = response.AsEnumerable();
         }
@@ -35,11 +31,11 @@ public class CosmosDbService : ICosmosDbService
         return results;
     }
 
-    public async Task<BaseModel?> GetItemAsync(string id)
+    public async Task<T?> GetItemAsync<T>(string id) where T : BaseModel
     {
         try
         {
-            ItemResponse<BaseModel> response = await _container.ReadItemAsync<BaseModel>(id, new(id));
+            ItemResponse<T> response = await _container.ReadItemAsync<T>(id, new(id));
             return response.Resource;
         }
         catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
@@ -48,28 +44,29 @@ public class CosmosDbService : ICosmosDbService
         }
     }
 
-    public async Task<BaseModel> AddItemAsync(BaseModel item)
+    public async Task<T?> AddItemAsync<T>(T item) where T : BaseModel
     {
         return await _container.CreateItemAsync(item, new(item.Id));
     }
 
-    public async IAsyncEnumerable<ItemResponse<BaseModel>?> AddItemsAsync(IEnumerable<BaseModel> items)
+    public async IAsyncEnumerable<ItemResponse<T>?> AddItemsAsync<T>(IEnumerable<T> items) where T : BaseModel
     {
-        foreach (var item in items)
+        foreach (T item in items)
         {
            yield return await _container.CreateItemAsync(item, new(item.Id)) ?? null;
         }
     }
 
-    public async Task<BaseModel?> UpdateItemAsync(string id, BaseModel item)
+    public async Task<T?> UpdateItemAsync<T>(string id, T item) where T : BaseModel
     {
         return await _container.UpsertItemAsync(item, new(item.Id));
     }
 
-    public async IAsyncEnumerable<ItemResponse<BaseModel>> UpdateItemsAsync(string query, IEnumerable<BaseModel> items)
+    public async IAsyncEnumerable<ItemResponse<T>> UpdateItemsAsync<T>(string query, IEnumerable<T> items)
+    where T : BaseModel
     {
-        FeedIterator<BaseModel> request = _container.GetItemQueryIterator<BaseModel>(new QueryDefinition(query));
-        foreach (BaseModel item in items)
+        FeedIterator<T> request = _container.GetItemQueryIterator<T>(new QueryDefinition(query));
+        foreach (T item in items)
         {
             if (request.HasMoreResults)
             {
@@ -78,26 +75,26 @@ public class CosmosDbService : ICosmosDbService
         }
     }
 
-    public async Task<bool> DeleteItemAsync(string id)
+    public async Task<bool> DeleteItemAsync<T>(string id) where T : BaseModel
     {
-        ItemResponse<BaseModel>? result = await _container.DeleteItemAsync<BaseModel>(id, new(id));
-        return result.StatusCode == HttpStatusCode.Accepted || result.StatusCode == HttpStatusCode.OK;
+        ItemResponse<T>? result = await _container.DeleteItemAsync<T>(id, new(id));
+        return result.StatusCode is HttpStatusCode.Accepted or HttpStatusCode.OK;
     }
 
-    public async Task<bool> DeleteItemsAsync(string query)
+    public async Task<bool> DeleteItemsAsync<T>(string query) where T : BaseModel
     {
-        FeedIterator<BaseModel> request = _container.GetItemQueryIterator<BaseModel>(new QueryDefinition(query));
-        IEnumerable<BaseModel> toDelete = Array.Empty<BaseModel>().AsEnumerable();
+        FeedIterator<T> request = _container.GetItemQueryIterator<T>(new QueryDefinition(query));
+        IEnumerable<T> toDelete = Array.Empty<T>().AsEnumerable();
         bool result = false;
         while (request.HasMoreResults)
         {
-            FeedResponse<BaseModel> response = await request.ReadNextAsync();
+            FeedResponse<T> response = await request.ReadNextAsync();
             toDelete = response.AsEnumerable();
         }
 
-        foreach (BaseModel item in toDelete)
+        foreach (T item in toDelete)
         {
-            ItemResponse<BaseModel>? res = await _container.DeleteItemAsync<BaseModel>(item.Id, new(item.Id));
+            ItemResponse<T>? res = await _container.DeleteItemAsync<T>(item.Id, new(item.Id));
             if (!result) return false;
             result = res.StatusCode is HttpStatusCode.Accepted or HttpStatusCode.OK;
         }

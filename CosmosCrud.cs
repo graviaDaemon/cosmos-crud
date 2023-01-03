@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Cosmos.Crud.Base;
 using Microsoft.Azure.Cosmos;
 
 namespace Cosmos.Crud;
